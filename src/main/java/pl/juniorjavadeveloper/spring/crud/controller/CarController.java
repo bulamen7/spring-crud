@@ -5,22 +5,24 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
-import pl.juniorjavadeveloper.spring.crud.model.CarModel;
+import pl.juniorjavadeveloper.spring.crud.service.CarService;
 
 @Controller
-//@RestController
-@RequestMapping("/car-service")
+@RequestMapping("/cars/workshop")
 public class CarController {
+    
     private static final Logger LOGGER = LoggerFactory.getLogger(CarController.class.getName());
-
+    private CarService carService;
+    
+    public CarController(CarService carService) {
+        this.carService = carService;
+    }
+    
     @GetMapping("/car")
-    @ResponseBody
-//    public String read(Long id) {
-    public CarModel read(Long id) {
+    public String read(Long id) {
         LOGGER.info("Reading Car data...");
-//        return "car-details";
-        return new CarModel();
+        carService.read(id);
+        return "car-details";
+        
     }
 }
