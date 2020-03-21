@@ -8,6 +8,8 @@ import pl.juniorjavadeveloper.spring.crud.dao.entity.CarEntity;
 import pl.juniorjavadeveloper.spring.crud.model.CarModel;
 import pl.juniorjavadeveloper.spring.crud.service.mapper.CarMapper;
 
+import java.math.BigDecimal;
+
 @Service
 public class CarService {
     
@@ -31,7 +33,7 @@ public class CarService {
     public CarModel read(Long id) {
         LOGGER.info("Reading");
         
-        return null;
+        return new CarModel("Ark", "opel", BigDecimal.valueOf(500));
     }
     
     
