@@ -9,6 +9,7 @@ import pl.juniorjavadeveloper.spring.crud.service.CarService;
 
 @Controller
 @RequestMapping("/cars/workshop")
+//http://localhost:8080/cars/workshop
 public class CarController {
     
     private static final Logger LOGGER = LoggerFactory.getLogger(CarController.class.getName());
@@ -19,6 +20,7 @@ public class CarController {
     }
     
     @GetMapping("/car")
+    //http://localhost:8080/cars/workshop/car
     public String read(Long id) {
         LOGGER.info("Reading Car data...");
         carService.read(id);
